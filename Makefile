@@ -1,15 +1,14 @@
-.PHONY: install run clean format update lint install-dev
+.PHONY: install run clean format lint install-dev test
 
 install:
-	python3 -m pip install --system .
-	# uv pip install --system .
+	uv pip install --system .
 
 install-dev:
-	uv pip install --system -r requirements-dev.txt
+	uv pip install --system -e ".[dev]"
 
 run:
 	$(MAKE) install
-	clock &
+	shownodes --help
 
 clean:
 	find . -type f -name '*.py[co]' -delete -o -type d -name __pycache__ -delete
@@ -20,11 +19,9 @@ clean:
 lint:
 	ruff check .
 
-format: install-dev
+format:
 	black .
 	isort .
 
-update:
-	pur -r requirements.txt
-	pur -r requirements-dev.txt
-	$(MAKE) format
+test:
+	pytest

@@ -203,7 +203,7 @@ csv = dict(metavar="CSV")
 @click.option("--topplus", "--top-plus", is_flag=True, help=HELP.topplus)
 @click.option("--width", type=int, default=0, help=HELP.width)
 @click.version_option()
-def cli(**kwargs):
+def main(**kwargs):
     """
     Show kubernetes nodes in an infrastructure-informed and cost-centered way. Enhanced
     `kubectl get nodes` and `kubectl get pods` with more information, better formatting,

@@ -1,7 +1,7 @@
 import pytest
 from click.testing import CliRunner
 
-from shownodes.cli import cli, status_match
+from shownodes.cli import main, status_match
 
 
 def _test_string(s):
@@ -18,7 +18,7 @@ def _result_string(s):
 @pytest.mark.skip("integration")
 def test_hello_world():
     runner = CliRunner()
-    result = runner.invoke(cli, ["--data-file=./tests/testdata/nodes_test_01.json", "--width=180"])
+    result = runner.invoke(main, ["--data-file=./tests/testdata/nodes_test_01.json", "--width=180"])
     assert result.exit_code == 0
     expected_result = _test_string(
         """

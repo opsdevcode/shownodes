@@ -52,3 +52,7 @@ same as in Geodesic with `set-clus`.
 `--top` Add top information (CPU and MEM percent used)
 
 `--highlight=<phrase>` Highlights given phrase in the table like a highlighter pen. Commas in `<phrase>` signal alternation, so `--highlight=12xlarge,16xlarge` applies the same highlight color to either `12xlarge` or `16xlarge` nodes. Multiple `--highlight` options may be given. Note this is simple string search in each table row; beware linguistic coincidence (e.g. `64` will match `amd64` and `64` GiB RAM and nodes with `64` in their node names). By default highlights in yellow. If you wish a specific highlight color, you can name it like such: `shownodes --highlight=orange:NG --highlight=yellow:16xlarge`. The available colors are yellow, pink, green, blue, orange, and purple.
+
+## License
+
+MIT. See [LICENSE](LICENSE).

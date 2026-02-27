@@ -1,2 +1,44 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "shownodes"
+version = "0.4.0"
+description = "Better kubectl get nodes for kubernetes"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Eric Skaggs", email = "ericskaggs@gmail.com" }]
+dependencies = [
+  "binary>=1.0.2",
+  "click>=8.3.1",
+  "arrow>=1.4.0",
+  "boto3>=1.42.16",
+  "rich>=14.2.0",
+  "natsort>=8.4.0",
+  "kubernetes>=28.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=7.0",
+  "black>=24.0",
+  "isort>=5.0",
+  "ruff>=0.1",
+]
+
+[project.scripts]
+shownodes = "shownodes.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+shownodes = ["data/*.json", "data/*.md"]
+
 [tool.black]
 line-length = 119
